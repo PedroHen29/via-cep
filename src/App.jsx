@@ -7,7 +7,9 @@ function App() {
 
   async function buscarCep(){
     const cepDigitado = document.getElementById("cep").value
-
+    if(cepDigitado === ""){
+      alert('Você precisa digitart um CEP')
+    }
     setLoading(true)
 
     try{
@@ -34,6 +36,7 @@ function App() {
 
       {cep && !loading && (
         <div>
+          <h1 >CEP:</h1>
           <p>Logradouro: {cep.logradouro}</p>
           <p>Bairro: {cep.bairro}</p>
           <p>Localidade: {cep.localidade}</p>
