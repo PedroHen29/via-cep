@@ -1,7 +1,4 @@
 import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
 import './App.css'
 
 function App() {
@@ -9,17 +6,17 @@ function App() {
   const [loading, setLoading] = useState(false)
 
   async function buscarCep(){
-    const cep = document.getElementById("cep").value
+    const cepDigitado = document.getElementById("cep").value
 
     setLoading(true)
 
     try{
       const resposta = await fetch(
-        `viacep.com.br/ws/${cep}/json/`
+        `https://viacep.com.br/ws/${cepDigitado}/json/`
       )
-
-      setCep(resposta)
-
+      const dados = await resposta.json()
+      setCep(dados)
+      console.log(dados)
     }catch(err){
       console.log("Ocorreu um erro", err)
     }finally{
@@ -37,7 +34,11 @@ function App() {
 
       {cep && !loading && (
         <div>
-          <h2>{cep.bairro}</h2>
+          <p>Logradouro: {cep.logradouro}</p>
+          <p>Bairro: {cep.bairro}</p>
+          <p>Localidade: {cep.localidade}</p>
+          <p>Estado: {cep.estado}</p>
+          <p>Regiao: {cep.regiao}</p>
         </div>
       )}
     </div>
