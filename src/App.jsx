@@ -29,14 +29,14 @@ function App() {
   return (
     <div>
       <h1>Digite um CEP</h1>
-      <input id='cep' type="text" placeholder='CEP'/>
+      <input id='cep' type="text" placeholder='Ex: 0100-1000'/>
       <button onClick={buscarCep}>Pesquisar</button>
 
       {loading && <p>Carregando...</p>}
 
       {cep && !loading && (
         <div>
-          <h1 >CEP:</h1>
+          <h1 id='logo-cep' >CEP:</h1>
           <p>Logradouro: {cep.logradouro}</p>
           <p>Bairro: {cep.bairro}</p>
           <p>Localidade: {cep.localidade}</p>
