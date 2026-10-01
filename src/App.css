@@ -4,7 +4,15 @@
   box-sizing: border-box;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
 div{
+  background: linear-gradient(325deg, #c9f1d1, #58b368, #47a157);
   width: 100%;
   height: 100vh;
   display: flex;
@@ -12,12 +20,13 @@ div{
   align-items: center;
   flex-direction: column;
   gap: 5px;
+  
 }
 
 button{
   padding: 6px;
   border: none;
-  background-color: #45A557;
+  background-color: transparent;
   border-radius: 5px;
   color: rgb(254, 244, 232);
   transition: 0.3s ease;
